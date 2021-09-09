@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='Description' content="This is a dice game which has 2 players and everytime you roll a dice
+     you get a winner">
+    <title>Dice Game</title>
+    <style>
+        body{
+  background-color: #393E46;
+    
+}
+.container{
+    text-align: center;
+    width: 70%;
+    margin: auto;
+}
+h1{
+  color: #4ECCA3;
+  font-size: 8rem;
+  font-family: 'Lobster', cursive;
+}
+.dice{
+    display: inline-block;
+    margin: 0 30px;
+    text-align: center;
+}
+p{
+  color: #4ECCA3;
+  font-size: 2rem;
+  font-family: 'Indie Flower', cursive;
+  
+
+}
+img{
+    width: 70%;
+}
+footer{
+    text-align: center;
+    color: rgb(201, 245, 245);
+    margin-top: 80px;
+    font-size: 2rem;
+  font-family: 'Indie Flower', cursive;
+
+}
+h2{
+    font-size: 3rem;
+  color: #4ECCA3;
+  border: 1px solid #0c3326 ;
+  background-color: rgb(47, 91, 67);
+  width: 40%;
+  margin: 30px auto 0;
+  border-radius: 30px;
+
+  }
+
+    </style>
+</head>
+<body onload="roll()">
+    <div class="container">
+        <h2 >Winner Will Be Displayed Here!</h2>
+        <h1>Refresh Me</h1>
+        <div class="dice">
+            <p>Player 1</p>
+            <img id="image1" src="images/dice6.png" alt="">
+        </div>
+        <div class="dice">
+            <p>Player 2</p>
+            <img id="image2" src="images/dice6.png" alt="">
+        </div>
+    </div>
+    <script>
+        const image1 = document.getElementById('image1')
+const image2 = document.getElementById('image2')
+
+const randm1 = Math.random()*6
+const randm2 = Math.random()*6
+const random1 = randm1+1
+const random2 = randm2+1
+const r1 = Math.floor(random1)
+const r2 = Math.floor(random2)
+function roll(){
+    image1.setAttribute('src',`images/dice${r1}.png`)
+    image2.setAttribute('src',`images/dice${r2}.png`)
+    if(r1>r2){
+    document.querySelector("h2").innerHTML = 'Wohho! Player1 Wins'
+    }
+    else if(r2>r1){
+    document.querySelector("h2").innerHTML = 'Wohho! Player2 Wins'
+    
+    }
+    else{
+    document.querySelector("h2").innerHTML = 'Draw'
+
+
+    }
+
+}
+    </script>
+    
+</body>
+<footer>
+    &copy; Tushar Verma 2021
+</footer>
+</html>
